@@ -1,22 +1,47 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "name": "electron-slice-prototype",
+  "version": "0.1.0-alpha",
+  "description": "Slice is an image viewer inspired by the deprecated Picasa Photo Viewer and built with electron from cross-platform operation on Windows, macOS, and Linux",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "image",
+    "photo",
+    "viewer",
+    "jpg",
+    "gif",
+    "png",
+    "webp"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Jeremy Dombrowski",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^10.1.0"
+    "electron": "^10.1.0",
+    "electron-builder": "^22.8.0"
+  },
+  "build": {
+    "appId": "electronSlicePrototype",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "target": [
+        "zip"
+      ],
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
   }
 }

@@ -103,7 +103,7 @@ function createMaxWindow(windowDisplay) {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   //Create Initial window in the display containing the cursor
-  createWindow(screen.getDisplayNearestPoint(screen.getCursorScreenPoint()))
+  createMaxWindow(screen.getDisplayNearestPoint(screen.getCursorScreenPoint()))
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

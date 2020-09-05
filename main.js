@@ -85,6 +85,8 @@ function createMaxWindow(windowDisplay) {
       maxWindow.hide();
       createWindow(currentDisplay);
       maxWindow.close();
+      // Move new window to top after creation (sometimes appears on bottom)
+      mainWindow.moveTop();
     }
   }
 

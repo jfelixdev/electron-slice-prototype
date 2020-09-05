@@ -39,6 +39,8 @@ function createWindow(windowDisplay) {
     mainWindow.show()
     // Avoid window creation on bottom when created on blur (sorta a workaround I guess but it works)
     mainWindow.setAlwaysOnTop(false);
+    // Disable taskbar flashing to attract user attention to new window
+    mainWindow.flashFrame(false);
   })
 
   //Need to close the window on maximize and create a new frameless window

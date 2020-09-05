@@ -16,19 +16,19 @@ Slice is being developed with the following goals in mind:
 ### Dev
 
 ```
-$ npm install
+$ yarn
 ```
 
 ### Run
 
 ```
-$ bozon start
+$ yarn start
 ```
 
 ### Package
 
 ```
-$ bozon package
+$ yarn dist
 ```
 
 Builds the app for OS X, Linux, and Windows, using [electron-builder](https://github.com/electron-userland/electron-builder).

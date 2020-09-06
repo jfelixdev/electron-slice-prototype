@@ -77,7 +77,7 @@ function createMaxWindow(windowDisplay) {
 
   //Show the window after it's finished loading
   maxWindow.once('ready-to-show', () => {
-    maxWindow.show()
+    maxWindow.show();
   })
 
   // Hide the window and create a framed window
@@ -94,7 +94,7 @@ function createMaxWindow(windowDisplay) {
 
   // Hide/destroy the window on blur
   maxWindow.on('blur', function(){
-    maxWindow.changeUnmax()
+    maxWindow.changeUnmax();
   })
 }
 
@@ -126,6 +126,7 @@ app.on('window-all-closed', function () {
 
 // Catch unmaximize event from renderer and unmax the window
 ipcMain.on('click-window-unmaximize', function (event, arg) {
+  console.log('max click event recieved');
   if (maxWindow.isVisible()) {
     maxWindow.changeUnmax()
   }

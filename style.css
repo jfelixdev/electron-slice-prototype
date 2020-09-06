@@ -45,6 +45,9 @@ body {
   background-position: center;
   background-size: cover;
   box-shadow: 5px 5px 20px -3px rgba(0,0,0,0.6);
+  /* Transition Animations */
+  transition: 0.5s ease-out all; 
+  -webkit-transition: 0.5s ease-out all;
   /* Debug styles */
-  z-index: -5;
+  /*z-index: -5;*/
 }

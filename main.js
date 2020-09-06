@@ -24,14 +24,14 @@ function createWindow(windowDisplay) {
     alwaysOnTop: true,
     //backgroundColor: '#808080',
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      //preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true
     }
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('indexMain.html')
   console.log(process.argv0)
 
   //Show the window after it's finished loading
@@ -39,6 +39,8 @@ function createWindow(windowDisplay) {
     mainWindow.show()
     // Avoid window creation on bottom when created on blur (sorta a workaround I guess but it works)
     mainWindow.setAlwaysOnTop(false);
+    // Disable taskbar flashing to attract user attention to new window
+    mainWindow.flashFrame(false);
   })
 
   //Need to close the window on maximize and create a new frameless window
@@ -64,18 +66,18 @@ function createMaxWindow(windowDisplay) {
     transparent: true,
     show: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      //preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true
     }
   })
 
   // and load the index.html of the app.
-  maxWindow.loadFile('index.html')
+  maxWindow.loadFile('indexMax.html');
 
   //Show the window after it's finished loading
   maxWindow.once('ready-to-show', () => {
-    maxWindow.show()
+    maxWindow.show();
   })
 
   // Hide the window and create a framed window
@@ -85,12 +87,14 @@ function createMaxWindow(windowDisplay) {
       maxWindow.hide();
       createWindow(currentDisplay);
       maxWindow.close();
+      // Move new window to top after creation (sometimes appears on bottom)
+      mainWindow.moveTop();
     }
   }
 
   // Hide/destroy the window on blur
   maxWindow.on('blur', function(){
-    maxWindow.changeUnmax()
+    maxWindow.changeUnmax();
   })
 }
 
@@ -99,7 +103,7 @@ function createMaxWindow(windowDisplay) {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   //Create Initial window in the display containing the cursor
-  createWindow(screen.getDisplayNearestPoint(screen.getCursorScreenPoint()))
+  createMaxWindow(screen.getDisplayNearestPoint(screen.getCursorScreenPoint()))
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -122,6 +126,7 @@ app.on('window-all-closed', function () {
 
 // Catch unmaximize event from renderer and unmax the window
 ipcMain.on('click-window-unmaximize', function (event, arg) {
+  console.log('max click event recieved');
   if (maxWindow.isVisible()) {
     maxWindow.changeUnmax()
   }

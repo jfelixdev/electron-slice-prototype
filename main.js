@@ -31,7 +31,7 @@ function createWindow(windowDisplay) {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('indexMain.html')
   console.log(process.argv0)
 
   //Show the window after it's finished loading
@@ -73,7 +73,7 @@ function createMaxWindow(windowDisplay) {
   })
 
   // and load the index.html of the app.
-  maxWindow.loadFile('index.html')
+  maxWindow.loadFile('indexMax.html');
 
   //Show the window after it's finished loading
   maxWindow.once('ready-to-show', () => {

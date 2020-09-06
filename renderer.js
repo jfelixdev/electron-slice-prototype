@@ -68,6 +68,11 @@ window.addEventListener('resize', function(e){
   onWindowResize();
 })
 
+setInterval(function(){
+
+  imageView.style.setProperty('--image-zoom', (imageView.style.getPropertyValue('--image-zoom') * 0.9));
+}, 1000);
+
 // Code to not show image until document is ready
 /*document.addEventListener("DOMContentLoaded", function(event) { 
   console.log('document ready, displaying image');

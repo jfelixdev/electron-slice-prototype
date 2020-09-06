@@ -49,5 +49,5 @@ body {
   transition: 0.5s ease-out all; 
   -webkit-transition: 0.5s ease-out all;
   /* Debug styles */
-  z-index: -5;
+  /*z-index: -5;*/
 }

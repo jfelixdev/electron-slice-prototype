@@ -24,7 +24,7 @@ function createWindow(windowDisplay) {
     alwaysOnTop: true,
     //backgroundColor: '#808080',
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      //preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true
     }
@@ -66,7 +66,7 @@ function createMaxWindow(windowDisplay) {
     transparent: true,
     show: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      //preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true
     }

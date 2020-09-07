@@ -10,7 +10,6 @@ imageCanvas.style.width = screen.availWidth + 'px';
 imageCanvas.style.height = screen.availHeight + 'px';
 
 // Add event listener to exit out of maximize on click outside image
-// @todo Set #imageCanvas size on window creation to make this code work properly again
 body.addEventListener("click", function (e) {
   if (e.composedPath()[0] === body || e.composedPath()[0] === imageCanvas) {
     ipcRenderer.send('click-window-unmaximize');

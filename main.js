@@ -25,14 +25,14 @@ function createWindow(windowDisplay) {
     alwaysOnTop: true,
     //backgroundColor: '#808080',
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      //preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true
     }
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('indexMain.html')
 
   //Show the window after it's finished loading
   mainWindow.once('ready-to-show', () => {
@@ -66,18 +66,18 @@ function createMaxWindow(windowDisplay) {
     transparent: true,
     show: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      //preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true
     }
   })
 
   // and load the index.html of the app.
-  maxWindow.loadFile('index.html')
+  maxWindow.loadFile('indexMax.html');
 
   //Show the window after it's finished loading
   maxWindow.once('ready-to-show', () => {
-    maxWindow.show()
+    maxWindow.show();
   })
 
   // Hide the window and create a framed window
@@ -94,7 +94,7 @@ function createMaxWindow(windowDisplay) {
 
   // Hide/destroy the window on blur
   maxWindow.on('blur', function(){
-    maxWindow.changeUnmax()
+    maxWindow.changeUnmax();
   })
 }
 
